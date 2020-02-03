@@ -14,7 +14,7 @@ public class Transformer : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(0, 0, speed * Time.deltaTime);
-        transform.Rotate(0, 0, angularSpeed * Time.deltaTime);
+        transform.Translate(0, 0, speed * Time.deltaTime, Space.World);
+        transform.Rotate(0, angularSpeed * Time.deltaTime, 0, Space.Self);
     }
 }
