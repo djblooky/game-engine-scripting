@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Transformer : MonoBehaviour
 {
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float angularSpeed = 45f;
+
     void Start()
     {
         
@@ -11,7 +14,7 @@ public class Transformer : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(0, 0, 1);
-        transform.Rotate(0, 0, 45f);
+        transform.Translate(0, 0, speed * Time.deltaTime);
+        transform.Rotate(0, 0, angularSpeed * Time.deltaTime);
     }
 }
