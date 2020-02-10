@@ -7,10 +7,19 @@ public class Throw : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private float throwStrength = 20;
     [SerializeField] private float upwardArcInDegrees = 30;
+    [SerializeField] private int throwsLeft = 5;
 
     void Update()
     {
-       if( Input.GetMouseButtonDown(0))
+        if(throwsLeft > 0)
+        {
+            CheckForThrow();
+        }  
+    }
+
+    void CheckForThrow()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Throwing!");
             Quaternion randomRotation = Random.rotationUniform;
