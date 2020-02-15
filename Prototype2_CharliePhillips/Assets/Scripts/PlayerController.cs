@@ -8,12 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float xRange = 10f;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject projectilePrefab;
 
-    // Update is called once per frame
     void Update()
     {
         if(transform.position.x < -xRange)
@@ -28,5 +24,11 @@ public class PlayerController : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //launch projectile from the player
+            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y +2, transform.position.z), projectilePrefab.transform.rotation);
+        }
     }
 }
