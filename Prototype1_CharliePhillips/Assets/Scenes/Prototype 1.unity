@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.58332765, g: 0.48013383, b: 0.24973491, a: 1}
+  m_IndirectSpecularColor: {r: 0.58332866, g: 0.4801346, b: 0.2497352, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -736,7 +736,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &233057931
 PrefabInstance:
@@ -3316,7 +3316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6d36c6ed090b9478cdbaa2d0f8cbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
 --- !u!1001 &1624976186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3742,6 +3741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782733915}
+  - component: {fileID: 1782733916}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -3762,11 +3762,24 @@ Transform:
   m_Children:
   - {fileID: 946404617}
   - {fileID: 85337618}
-  - {fileID: 131455757}
   - {fileID: 1866089340}
+  - {fileID: 131455757}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1782733916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782733914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.519962, y: 13.0336275, z: 170.10551}
+  m_Center: {x: -25.1043, y: -3.7088714, z: 64.2082}
 --- !u!1001 &1859262126
 PrefabInstance:
   m_ObjectHideFlags: 0
