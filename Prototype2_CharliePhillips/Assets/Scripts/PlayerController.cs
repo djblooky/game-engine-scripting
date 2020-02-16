@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private float horizontalInput;
-    [SerializeField] float speed = 10f;
-    [SerializeField] float xRange = 10f;
+    [SerializeField] private readonly float speed = 10f;
+    [SerializeField] private readonly float xRange = 10f;
 
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab;
 
-    void Update()
+    private void Update()
     {
-        if(transform.position.x < -xRange)
+        if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
@@ -28,7 +26,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //launch projectile from the player
-            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y +2, transform.position.z), projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), projectilePrefab.transform.rotation);
         }
     }
 }

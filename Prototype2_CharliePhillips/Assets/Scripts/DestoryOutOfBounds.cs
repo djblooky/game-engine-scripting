@@ -5,16 +5,16 @@ public class DestoryOutOfBounds : MonoBehaviour
     private float topBound = 30;
     private float lowerBound = -10;
 
-    void Update()
+    private void Update()
     {
-        if(transform.position.z > topBound)
+        if (transform.position.z > topBound)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-
-        if (transform.position.z < lowerBound)
+        else if (transform.position.z < lowerBound)
         {
-            Destroy(this.gameObject);
+            Debug.Log("Game Over!");
+            Destroy(gameObject);
         }
     }
 }

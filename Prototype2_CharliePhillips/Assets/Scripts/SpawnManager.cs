@@ -1,21 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] animalPrefabs;
-    private float spawnRangeX = 20;
-    private float spawnPosZ = 20;
+    [SerializeField] private GameObject[] animalPrefabs;
+    private readonly float spawnRangeX = 20;
+    private readonly float spawnPosZ = 20;
+    private readonly float startDelay = 2;
+    private readonly float startInterval = 1.5f;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            int animalIndex = Random.Range(0, animalPrefabs.Length);
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        InvokeRepeating("SpawnRandomAnimal", startDelay, startInterval);
+    }
 
-            Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
-        }
+    private void Update()
+    {
+
+    }
+
+    private void SpawnRandomAnimal()
+    {
+        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+
+        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
 }
