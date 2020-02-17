@@ -3,8 +3,8 @@
 public class PlayerController : MonoBehaviour
 {
     private float horizontalInput;
-    [SerializeField] private readonly float speed = 10f;
-    [SerializeField] private readonly float xRange = 10f;
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private float xRange = 20f;
 
     [SerializeField] private GameObject projectilePrefab;
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //launch projectile from the player
-            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), projectilePrefab.transform.rotation);
         }
     }
 }

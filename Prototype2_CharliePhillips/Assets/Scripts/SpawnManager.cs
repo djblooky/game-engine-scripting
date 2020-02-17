@@ -3,19 +3,14 @@
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] animalPrefabs;
-    private readonly float spawnRangeX = 20;
-    private readonly float spawnPosZ = 20;
-    private readonly float startDelay = 2;
-    private readonly float startInterval = 1.5f;
+    private float spawnRangeX = 20;
+    private float spawnPosZ = 20;
+    private float startDelay = 3;
+    private float startInterval = 3.5f;
 
     private void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, startInterval);
-    }
-
-    private void Update()
-    {
-
     }
 
     private void SpawnRandomAnimal()
