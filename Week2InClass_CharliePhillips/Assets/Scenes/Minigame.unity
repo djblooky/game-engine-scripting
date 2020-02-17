@@ -4534,6 +4534,7 @@ GameObject:
   - component: {fileID: 742577890}
   - component: {fileID: 742577893}
   - component: {fileID: 742577894}
+  - component: {fileID: 742577895}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -4632,10 +4633,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee5bb0018beca84988893497da70f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodList:
+  - {fileID: 8658153801432512265, guid: 86a4b67c80ac9684ea7e140f725498f1, type: 3}
+  - {fileID: 6623092636830738675, guid: 03c1473bec7cd484c83820503f42639d, type: 3}
+  - {fileID: 5262869242395467432, guid: 90958bb247b20a54b9c5faee05737309, type: 3}
+  - {fileID: 1194172938059434492, guid: 8b2730d2ae09c0b4bb622eeefc7f111f, type: 3}
+  - {fileID: 7393720311325957788, guid: 97fcd7ca3c2ece24d830b91735b6a493, type: 3}
   projectile: {fileID: 8658153801432512265, guid: 86a4b67c80ac9684ea7e140f725498f1,
     type: 3}
   throwStrength: 20
   upwardArcInDegrees: 10
+  throwsLeft: 5
+--- !u!114 &742577895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742577889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beae1575549105640853c9f85188175a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &768989192
 PrefabInstance:
   m_ObjectHideFlags: 0
