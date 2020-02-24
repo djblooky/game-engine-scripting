@@ -21,7 +21,7 @@ public class DamageManager : MonoBehaviour
 
     private void UpdateDamageText()
     {
-        damageText.text = $"Damage: {damage}";
+        damageText.text = $"Damage: {damage}%";
     }
 
     private void Update()

@@ -4,7 +4,6 @@ public class CollisionTracker : MonoBehaviour
 {
     private DamageManager damageManager;
 
-
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
