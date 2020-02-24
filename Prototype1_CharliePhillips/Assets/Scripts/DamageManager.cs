@@ -23,4 +23,12 @@ public class DamageManager : MonoBehaviour
     {
         damageText.text = $"Damage: {damage}";
     }
+
+    private void Update()
+    {
+        if(damage >= 100)
+        {
+            damage = 0;
+        }
+    }
 }
