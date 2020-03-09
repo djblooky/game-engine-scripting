@@ -11,6 +11,14 @@ public class ScoreManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Ball"))
+        {
+            IncrementScore();
+        }
+    }
+
+    private void IncrementScore()
+    {
         score += 1;
         scoreText.text = "Score: " + score;
     }

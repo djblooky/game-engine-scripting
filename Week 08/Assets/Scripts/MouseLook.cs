@@ -10,8 +10,8 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Mouse X: {Input.GetAxis("Mouse X")}");
-        Debug.Log($"Mouse Y: {Input.GetAxis("Mouse Y")}");
+        //Debug.Log($"Mouse X: {Input.GetAxis("Mouse X")}");
+        //Debug.Log($"Mouse Y: {Input.GetAxis("Mouse Y")}");
 
         // Use descriptive variable names to break complex code into easier to follow parts. Many
         // times, that will eliminate the need for comments!

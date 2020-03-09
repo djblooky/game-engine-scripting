@@ -297,7 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e1428b7c8e9c341b48c0b9a4d89bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 5989763868484251509, guid: a74e3e0439a568941aae8891d8b9ad21, type: 3}
+  ballPrefab: {fileID: 5989763868484251509, guid: a74e3e0439a568941aae8891d8b9ad21,
+    type: 3}
   shootForce: 25
   shotsPerSecond: 5
   upwardAngleRotation: 15
