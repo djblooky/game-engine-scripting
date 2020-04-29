@@ -30,10 +30,25 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); //num between -1,1 (-1=left key, 1=right key)
         float xVelocity = horizontalInput * speed;
         playerRB.velocity = new Vector2(xVelocity, playerRB.velocity.y);
+
+        if((!isFacingRight && horizontalInput > 0) || (isFacingRight && horizontalInput < 0))
+        {
+            Flip();
+        }
     }
 
     private void FixedUpdate()
     {
         //put physics code in here!
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+
+        Vector3 scale = transform.localScale;
+        scale.x = isFacingRight ? 1 : -1;
+        transform.localScale = scale;
+
     }
 }
