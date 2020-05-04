@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Numerics;
+using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -16,13 +19,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+
     private Rigidbody2D playerRB;
-    private bool isJumping;
     private bool isFacingRight = true;
+    [SerializeField] bool isOnGround = false;
+
+    new private Collider2D collider;
+    private RaycastHit2D[] hits = new RaycastHit2D[16]; //can detect up to 16 things hit in one cast
+    private float groundDistanceCheck = 0.05f;
 
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -35,6 +44,24 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        //jump logic
+        //check for landing on the ground
+        int numHits = collider.Cast(Vector2.down, hits, groundDistanceCheck);
+        isOnGround = numHits > 0; //if on the ground we hit something (more than 0 things)
+
+        //debug
+        Vector2 rayStart = new Vector2(collider.bounds.center.x, collider.bounds.min.y);
+        Vector2 rayDirection = Vector2.down * groundDistanceCheck;
+        Debug.DrawRay(rayStart, rayDirection, Color.red, 1f);
+
+        //jump only if on the ground
+        bool isJumpPressed = Input.GetButtonDown("Jump");
+        if(isJumpPressed && isOnGround)
+        {
+            playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
     }
 
     private void FixedUpdate()
