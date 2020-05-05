@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     private float groundDistanceCheck = 0.05f;
     private Animator animator;
 
+    private float horizontalInput = 0;
+    private bool isJumpPressed = false;
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
@@ -38,11 +41,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal"); //num between -1,1 (-1=left key, 1=right key)
+        //key inputs should go in update
+        horizontalInput += Input.GetAxis("Horizontal"); //num between -1,1 (-1=left key, 1=right key)
+        isJumpPressed = isJumpPressed || Input.GetButtonDown("Jump");
+    }
+
+    private void ClearInputs()
+    {
+        horizontalInput = 0;
+        isJumpPressed = false;
+    }
+
+    private void FixedUpdate()
+    {
+        
         float xVelocity = horizontalInput * speed;
         playerRB.velocity = new Vector2(xVelocity, playerRB.velocity.y);
 
-        if((!isFacingRight && horizontalInput > 0) || (isFacingRight && horizontalInput < 0))
+        if ((!isFacingRight && horizontalInput > 0) || (isFacingRight && horizontalInput < 0))
         {
             Flip();
         }
@@ -58,8 +74,8 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(rayStart, rayDirection, Color.red, 1f);
 
         //jump only if on the ground
-        bool isJumpPressed = Input.GetButtonDown("Jump");
-        if(isJumpPressed && isOnGround)
+        
+        if (isJumpPressed && isOnGround)
         {
             playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -69,11 +85,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("yVelocity", playerRB.velocity.y);
         animator.SetBool("isOnGround", isOnGround);
 
-    }
-
-    private void FixedUpdate()
-    {
-        //put physics code in here!
+        ClearInputs();
     }
 
     private void Flip()
