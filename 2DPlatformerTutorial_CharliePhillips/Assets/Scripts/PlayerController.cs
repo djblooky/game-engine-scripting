@@ -27,11 +27,13 @@ public class PlayerController : MonoBehaviour
     new private Collider2D collider;
     private RaycastHit2D[] hits = new RaycastHit2D[16]; //can detect up to 16 things hit in one cast
     private float groundDistanceCheck = 0.05f;
+    private Animator animator;
 
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -61,6 +63,11 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+
+        //link variables to the animator
+        animator.SetFloat("xSpeed", Mathf.Abs(playerRB.velocity.x));
+        animator.SetFloat("yVelocity", playerRB.velocity.y);
+        animator.SetBool("isOnGround", isOnGround);
 
     }
 
